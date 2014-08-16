@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Peru"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.NS.mathforkids.MainActivity" >
+
+    <TextView
+        android:id="@+id/textView_questionView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:hint="@string/Questions_shown"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup_choices"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_questionView"
+        android:layout_below="@+id/textView_questionView"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="18dp" >
+
+        <RadioButton
+            android:id="@+id/RadioButton_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_A" />
+
+        <RadioButton
+            android:id="@+id/RadioButton_B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_B" />
+
+        <RadioButton
+            android:id="@+id/RadioButton_C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_C" />
+
+        <RadioButton
+            android:id="@+id/RadioButton_D"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_D" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView_answerView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_questionView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_back"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_answerView"
+        android:layout_below="@+id/radioGroup_choices"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="30dp"
+        android:onClick="onClick"
+        android:text="@string/b_Back"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_next"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textView_answerView"
+        android:layout_alignTop="@+id/button_back"
+        android:layout_marginRight="36dp"
+        android:onClick="onClick"
+        android:text="@string/b_Next"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:onClick="onClick"
+        android:text="@string/b_Submit"
+        android:textStyle="bold" />
+
+</RelativeLayout>

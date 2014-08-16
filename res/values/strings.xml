@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MathForKids</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="textview_question"></string>
+    <color name="Peru">#CD853F</color>
+    <string name="rb_A">A</string>
+    <string name="rb_B">B</string>
+    <string name="rb_C">C</string>
+    <string name="rb_D">D</string>
+    <string name="Questions_shown">Questions</string>
+    <string name="b_Submit">Submit</string>
+    <string name="b_Back">Back</string>
+    <string name="b_Next">Next</string>
+
+</resources>
