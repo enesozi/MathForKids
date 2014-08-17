@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 	private static final int MAX_NUM=30;
@@ -29,13 +32,10 @@ public class MainActivity extends ActionBarActivity {
 	private ArrayList<Integer> correctAnswers;
 	private int score;
 	private int wrongAnswers;
-	private TextView answerView;
-	private Button back;
 	private Button next;
 	private Button submit;
 	private int correctAns;
-	private RadioButton r;
-	int t;
+	private RadioButton r;	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,18 +43,17 @@ public class MainActivity extends ActionBarActivity {
 		Questions=new ArrayList<String>();
 		Answers=new ArrayList<String>();
 		correctAnswers=new ArrayList<Integer>();
-		currentQuestion=0;
+	 	currentQuestion=0;
 		wrongAnswers=0;
-		score=0;
-		t=1;
+		score=0;		
 		questionView=(TextView)findViewById(R.id.textView_questionView);
 		a=(RadioButton)findViewById(R.id.RadioButton_A);
 		b=(RadioButton)findViewById(R.id.RadioButton_B);
 		c=(RadioButton)findViewById(R.id.RadioButton_C);
 		d=(RadioButton)findViewById(R.id.RadioButton_D);	
 		answerGroup=(RadioGroup)findViewById(R.id.radioGroup_choices);
-		answerView=(TextView)findViewById(R.id.textView_answerView);
-		back=(Button)findViewById(R.id.button_back);
+		
+		
 		next=(Button)findViewById(R.id.button_next);
 	    submit=(Button)findViewById(R.id.button_submit);
 	    showQuestion();
@@ -66,18 +65,9 @@ public class MainActivity extends ActionBarActivity {
 		checkAnswer();
 		}
 		
-		if(view.getId()==next.getId()){					
+		if(view.getId()==next.getId()&&(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked())){					
 						
 			showQuestion();			
-		}else if(view.getId()==back.getId()){
-			t++;
-			questionView.setText(Questions.get(currentQuestion-t));
-			a.setText(String.valueOf(correctAnswers.get(currentQuestion-t)));
-			b.setText(String.valueOf(correctAnswers.get(currentQuestion-t)-1));
-			c.setText(String.valueOf(correctAnswers.get(currentQuestion-t)+2));
-			d.setText(String.valueOf(correctAnswers.get(currentQuestion-t)-3));
-		}else if(view.getId()==submit.getId()){
-			answerView.setText("You give "+wrongAnswers+" wrong answers.\n" +"Your score is : "+score);
 		}
 		answerGroup.clearCheck();
 	}
@@ -124,14 +114,34 @@ public class MainActivity extends ActionBarActivity {
 		
 		String answer=(String)r.getText().toString();
 		if(isCorrect(answer)){
-			answerView.setText("Yeah!Keep Going!");
+			Toast toast = new Toast(this);
+		    ImageView view = new ImageView(this); 
+		    view.setImageResource(R.drawable.tick); 
+		    toast.setView(view); 
+		    toast.show();
 			score+=10;
 		}else{
-			answerView.setText("You gotta work harder! The answer is: "+Answers.get(currentQuestion-1));
+			Toast toast = new Toast(this);
+		    ImageView view = new ImageView(this); 
+		    view.setImageResource(R.drawable.wrong); 
+		    toast.setView(view); 
+		    toast.show();
 			wrongAnswers++;
 			
 		}
 
+	}
+	public void sendMessage(View view) 
+	{	
+		if(view.getId()==submit.getId()){
+		String s="You give "+wrongAnswers+" wrong answers.\n" +"Your score is : "+score;
+	    Intent intent = new Intent(MainActivity.this, SubmitActivity.class);
+	    intent.putExtra("new_activity_info", s);
+	    startActivity(intent);
+	    
+	    onResume();
+	  
+	}
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

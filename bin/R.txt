@@ -120,8 +120,10 @@ int bool abc_config_actionMenuItemAllCaps 0x7f060005
 int bool abc_config_allowActionMenuItemTextWithIcon 0x7f060004
 int bool abc_config_showMenuShortcutsWhenKeyboardPresent 0x7f060003
 int bool abc_split_action_bar_is_narrow 0x7f060002
+int color Chocolate 0x7f070004
 int color Peru 0x7f070003
-int color abc_search_url_text_holo 0x7f070004
+int color YellowGreen 0x7f070005
+int color abc_search_url_text_holo 0x7f070006
 int color abc_search_url_text_normal 0x7f070000
 int color abc_search_url_text_pressed 0x7f070002
 int color abc_search_url_text_selected 0x7f070001
@@ -236,6 +238,8 @@ int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
 int drawable ic_launcher 0x7f020057
+int drawable tick 0x7f020058
+int drawable wrong 0x7f020059
 int id RadioButton_A 0x7f05003e
 int id RadioButton_B 0x7f05003f
 int id RadioButton_C 0x7f050040
@@ -251,13 +255,12 @@ int id action_context_bar 0x7f05001d
 int id action_menu_divider 0x7f050016
 int id action_menu_presenter 0x7f050017
 int id action_mode_close_button 0x7f050024
-int id action_settings 0x7f050046
+int id action_settings 0x7f050045
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
-int id button_back 0x7f050043
-int id button_next 0x7f050044
-int id button_submit 0x7f050045
+int id button_next 0x7f050043
+int id button_submit 0x7f050042
 int id checkbox 0x7f05002d
 int id collapseActionView 0x7f05000d
 int id default_activity_button 0x7f050028
@@ -300,8 +303,8 @@ int id showTitle 0x7f050006
 int id split_action_bar 0x7f05001e
 int id submit_area 0x7f050039
 int id tabMode 0x7f050002
-int id textView_answerView 0x7f050042
 int id textView_questionView 0x7f05003c
+int id textView_showResult 0x7f050044
 int id title 0x7f05002b
 int id top_action_bar 0x7f050020
 int id up 0x7f050021
@@ -333,8 +336,10 @@ int layout abc_search_dropdown_item_icons_2line 0x7f030015
 int layout abc_search_view 0x7f030016
 int layout abc_simple_decor 0x7f030017
 int layout activity_main 0x7f030018
-int layout support_simple_spinner_dropdown_item 0x7f030019
+int layout activity_submit 0x7f030019
+int layout support_simple_spinner_dropdown_item 0x7f03001a
 int menu main 0x7f0c0000
+int menu submit 0x7f0c0001
 int string Questions_shown 0x7f0a0015
 int string abc_action_bar_home_description 0x7f0a0001
 int string abc_action_bar_up_description 0x7f0a0002
@@ -360,6 +365,7 @@ int string rb_B 0x7f0a0012
 int string rb_C 0x7f0a0013
 int string rb_D 0x7f0a0014
 int string textview_question 0x7f0a0010
+int string title_activity_submit 0x7f0a0019
 int style AppBaseTheme 0x7f0b008b
 int style AppTheme 0x7f0b008c
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063

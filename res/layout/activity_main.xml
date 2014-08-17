@@ -54,50 +54,27 @@
             android:text="@string/rb_D" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/textView_answerView"
+    <Button
+        android:id="@+id/button_submit"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_questionView"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="15dp"
-        android:textSize="26sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button_back"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_answerView"
-        android:layout_below="@+id/radioGroup_choices"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="30dp"
-        android:onClick="onClick"
-        android:text="@string/b_Back"
+        android:layout_below="@+id/button_next"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:onClick="sendMessage"
+        android:text="@string/b_Submit"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/button_next"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView_answerView"
-        android:layout_alignTop="@+id/button_back"
-        android:layout_marginRight="36dp"
+        android:layout_alignLeft="@+id/textView_questionView"
+        android:layout_below="@+id/radioGroup_choices"
+        android:layout_marginTop="38dp"
         android:onClick="onClick"
         android:text="@string/b_Next"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/button_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_next"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:onClick="onClick"
-        android:text="@string/b_Submit"
         android:textStyle="bold" />
 
 </RelativeLayout>

@@ -858,8 +858,10 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
+        public static final int Chocolate=0x7f070004;
         public static final int Peru=0x7f070003;
-        public static final int abc_search_url_text_holo=0x7f070004;
+        public static final int YellowGreen=0x7f070005;
+        public static final int abc_search_url_text_holo=0x7f070006;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
@@ -1079,6 +1081,8 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
+        public static final int tick=0x7f020058;
+        public static final int wrong=0x7f020059;
     }
     public static final class id {
         public static final int RadioButton_A=0x7f05003e;
@@ -1096,13 +1100,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050046;
+        public static final int action_settings=0x7f050045;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int button_back=0x7f050043;
-        public static final int button_next=0x7f050044;
-        public static final int button_submit=0x7f050045;
+        public static final int button_next=0x7f050043;
+        public static final int button_submit=0x7f050042;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1145,8 +1148,8 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int textView_answerView=0x7f050042;
         public static final int textView_questionView=0x7f05003c;
+        public static final int textView_showResult=0x7f050044;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
@@ -1204,10 +1207,12 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
-        public static final int support_simple_spinner_dropdown_item=0x7f030019;
+        public static final int activity_submit=0x7f030019;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
+        public static final int submit=0x7f0c0001;
     }
     public static final class string {
         public static final int Questions_shown=0x7f0a0015;
@@ -1262,6 +1267,7 @@ containing a value of this type.
         public static final int rb_C=0x7f0a0013;
         public static final int rb_D=0x7f0a0014;
         public static final int textview_question=0x7f0a0010;
+        public static final int title_activity_submit=0x7f0a0019;
     }
     public static final class style {
         /** 
