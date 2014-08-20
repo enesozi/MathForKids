@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
 		Questions=new ArrayList<String>();
 		Answers=new ArrayList<String>();
 		correctAnswers=new ArrayList<Integer>();
-	 	currentQuestion=0;
+		currentQuestion=0;
 		wrongAnswers=0;
 		score=0;		
 		questionView=(TextView)findViewById(R.id.textView_questionView);
@@ -52,21 +57,21 @@ public class MainActivity extends ActionBarActivity {
 		c=(RadioButton)findViewById(R.id.RadioButton_C);
 		d=(RadioButton)findViewById(R.id.RadioButton_D);	
 		answerGroup=(RadioGroup)findViewById(R.id.radioGroup_choices);
-		
-		
+
+
 		next=(Button)findViewById(R.id.button_next);
-	    submit=(Button)findViewById(R.id.button_submit);
-	    showQuestion();
-	    
+		submit=(Button)findViewById(R.id.button_submit);
+		showQuestion();
+
 	}
 	public void onClick(View view){
 		if(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked()){
-		r=(RadioButton)findViewById(answerGroup.getCheckedRadioButtonId());
-		checkAnswer();
+			r=(RadioButton)findViewById(answerGroup.getCheckedRadioButtonId());
+			checkAnswer();
 		}
-		
+
 		if(view.getId()==next.getId()&&(a.isChecked()||b.isChecked()||c.isChecked()||d.isChecked())){					
-						
+
 			showQuestion();			
 		}
 		answerGroup.clearCheck();
@@ -94,9 +99,20 @@ public class MainActivity extends ActionBarActivity {
 		d.setText(String.valueOf(correctAns-3));
 
 		currentQuestion++;
-		
-	}
 
+	}
+	public void onBackPressed() {
+	    new AlertDialog.Builder(this)
+	           .setMessage("Are you sure you want to exit?")
+	           .setCancelable(false)
+	           .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+	               public void onClick(DialogInterface dialog, int id) {
+	                    MainActivity.this.finish();
+	               }
+	           })
+	           .setNegativeButton("No", null)
+	           .show();
+	}
 
 	private int findSmallestMultiple(int n, int m) {
 		while(n%m!=0) n+=1;
@@ -110,38 +126,48 @@ public class MainActivity extends ActionBarActivity {
 
 		return answer.equalsIgnoreCase(Answers.get(currentQuestion-1));
 	}
+
 	private void checkAnswer(){
-		
+		Toast toast = new Toast(this);
+		ImageView view = new ImageView(this); 
 		String answer=(String)r.getText().toString();
 		if(isCorrect(answer)){
-			Toast toast = new Toast(this);
-		    ImageView view = new ImageView(this); 
-		    view.setImageResource(R.drawable.tick); 
-		    toast.setView(view); 
-		    toast.show();
-			score+=10;
-		}else{
-			Toast toast = new Toast(this);
-		    ImageView view = new ImageView(this); 
-		    view.setImageResource(R.drawable.wrong); 
-		    toast.setView(view); 
-		    toast.show();
-			wrongAnswers++;
+
+			Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.tick);
+			Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, 200, 200, true);			
+			MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+					R.raw.correct);
+					mp.start();
+					view.setImageBitmap(bMapScaled);
 			
+
+			score+=10;
+		}else{			
+			Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.wrong);
+			Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, 200, 200, true);
+			
+			MediaPlayer mp = MediaPlayer.create(getBaseContext(),
+					R.raw.wrong);
+					mp.start();
+					view.setImageBitmap(bMapScaled);
+			wrongAnswers++;
+
 		}
 
+		toast.setView(view);
+		toast.show();
 	}
 	public void sendMessage(View view) 
 	{	
 		if(view.getId()==submit.getId()){
-		String s="You give "+wrongAnswers+" wrong answers.\n" +"Your score is : "+score;
-	    Intent intent = new Intent(MainActivity.this, SubmitActivity.class);
-	    intent.putExtra("new_activity_info", s);
-	    startActivity(intent);
-	    
-	    onResume();
-	  
-	}
+			String s="You've given "+wrongAnswers+" wrong answers.\n" +"Your score is : "+score;
+			Intent intent = new Intent(MainActivity.this, SubmitActivity.class);
+			intent.putExtra("new_activity_info", s);
+			startActivity(intent);
+
+			onResume();
+
+		}
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
