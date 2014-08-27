@@ -341,7 +341,8 @@ int layout support_simple_spinner_dropdown_item 0x7f03001a
 int menu main 0x7f0d0000
 int menu submit 0x7f0d0001
 int raw correct 0x7f050000
-int raw wrong 0x7f050001
+int raw quans 0x7f050001
+int raw wrong 0x7f050002
 int string Questions_shown 0x7f0b0015
 int string abc_action_bar_home_description 0x7f0b0001
 int string abc_action_bar_up_description 0x7f0b0002

@@ -1216,7 +1216,8 @@ containing a value of this type.
     }
     public static final class raw {
         public static final int correct=0x7f050000;
-        public static final int wrong=0x7f050001;
+        public static final int quans=0x7f050001;
+        public static final int wrong=0x7f050002;
     }
     public static final class string {
         public static final int Questions_shown=0x7f0b0015;

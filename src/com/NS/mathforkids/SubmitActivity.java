@@ -17,8 +17,7 @@ public class SubmitActivity extends ActionBarActivity {
 		showResult.setText(extras.getString("new_activity_info"));
 		
 	}
-	public void onBackPressed() {
-				
+	public void onBackPressed() {	
 		finish();
 		
 		return;
